@@ -9,14 +9,14 @@ class ValidatorTest {
     @Test
     void hasElevenDigits(){
         boolean actual = Validator.hasElevenDigits(number);
-        assertEquals(true, actual);
+        assertTrue(actual);
     }
 
     @Test
     void doesNotHaveElevenDigits(){
         long number = 1234567890L;
         boolean actual = Validator.hasElevenDigits(number);
-        assertEquals(false, actual);
+        assertFalse(actual);
 
     }
 
@@ -54,21 +54,87 @@ class ValidatorTest {
     @Test
     void birthDateIsUnder32AndValid(){
         boolean actual = Validator.validateBirthDate(number);
-        assertEquals(true, actual);
+        assertTrue(actual);
 
     }
     @Test
     void birthDateIsOver31AndInvalid(){
         boolean actual = Validator.validateBirthDate(32129966789L);
-        assertEquals(false, actual);
+        assertFalse(actual);
 
     }
     @Test
     void birthMonthIsOver12AndInvalid(){
         boolean actual = Validator.validateBirthDate(31139966789L);
-        assertEquals(false, actual);
+        assertFalse(actual);
 
     }
+
+    @Test
+    void resultOfTheSumMod11IsValid(){
+        int sum = 99;
+        boolean actual = Validator.sumModEleven(sum);
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void resultOfTheSumMod11IsInvalid(){
+        int sum = 100;
+        boolean actual = Validator.sumModEleven(sum);
+        assertEquals(false, actual);
+    }
+
+    @Test
+    void correctResultOfSumForType1(){
+        int expected = 253;
+        int actual = Validator.calculateSum(number, 1);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void correctResultOfSumForType2(){
+        int expected = 243;
+        int actual = Validator.calculateSum(number, 2);
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    void returnArrayForType1(){
+        int[] expected = {3, 7, 6, 1, 8, 9, 4, 5, 2, 1};
+        int[] actual = Validator.returnCorrespondingControlArray(1);
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void returnArrayForType2(){
+        int[] expected = {5, 4, 3, 2, 7, 6, 5, 4, 3, 2, 1};
+        int[] actual = Validator.returnCorrespondingControlArray(2);
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void return0DigitsValue(){
+        int expected = 3;
+        int actual = Validator.returnCorrespondingDigit(number, 0);
+        assertEquals(expected, actual);
+
+    }
+    @Test
+    void return10DigitsValue(){
+        int expected = 8;
+        int actual = Validator.returnCorrespondingDigit(number, 9);
+        assertEquals(expected, actual);
+
+    }
+    @Test
+    void return11DigitsValue(){
+        int expected = 9;
+        int actual = Validator.returnCorrespondingDigit(number, 10);
+        assertEquals(expected, actual);
+
+    }
+
 
 
 
