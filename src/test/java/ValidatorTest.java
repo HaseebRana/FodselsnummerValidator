@@ -20,12 +20,6 @@ class ValidatorTest {
 
     }
 
-/*    @Test
-    void validBirthDate(){
-        boolean actual = Validator.hasValidBirthDate(number);
-        assertEquals(true, actual);
-
-    }*/
 
     @Test
     void returnCorrectPartOfNumberFromIndex0to2(){
@@ -74,14 +68,14 @@ class ValidatorTest {
     void resultOfTheSumMod11IsValid(){
         int sum = 99;
         boolean actual = Validator.sumModEleven(sum);
-        assertEquals(true, actual);
+        assertTrue(actual);
     }
 
     @Test
     void resultOfTheSumMod11IsInvalid(){
         int sum = 100;
         boolean actual = Validator.sumModEleven(sum);
-        assertEquals(false, actual);
+        assertFalse(actual);
     }
 
     @Test
@@ -135,7 +129,25 @@ class ValidatorTest {
 
     }
 
+    @Test
+    void validControlDigits(){
+        long validFodselsnummer = 30045129140L;
+        boolean actual = Validator.validateControlDigits(validFodselsnummer);
+        assertTrue(actual);
+    }
 
+    @Test
+    void invalidControlDigits(){
+        boolean actual = Validator.validateControlDigits(number);
+        assertFalse(actual);
+    }
+
+    @Test
+    void validateFodselsnummer(){
+        long fodselsNummer = 16129535370L;
+        boolean actual = Validator.validateFodselsnummer(fodselsNummer);
+        assertTrue(actual);
+    }
 
 
 
