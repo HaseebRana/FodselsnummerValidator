@@ -4,6 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <sonar.projectKey>HaseebRana_FodselsnummerValidator</sonar.projectKey>
+        <sonar.organization>haseebrana</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.login>61c39114e2ae55bd68be884faa89035638f8de28</sonar.login>
+    </properties>
+
     <groupId>io.haseeb</groupId>
     <artifactId>FodselsnummerValidator</artifactId>
     <version>1.0-SNAPSHOT</version>

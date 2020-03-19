@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -142,9 +144,11 @@ class ValidatorTest {
         assertFalse(actual);
     }
 
-    @Test
-    void validateFodselsnummer(){
-        long fodselsNummer = 16129535370L;
+
+
+    @ParameterizedTest
+    @ValueSource(longs = {25113426678L,20025014481L,14098338714L})
+    void validateFodselsnummer(long fodselsNummer){
         boolean actual = Validator.validateFodselsnummer(fodselsNummer);
         assertTrue(actual);
     }

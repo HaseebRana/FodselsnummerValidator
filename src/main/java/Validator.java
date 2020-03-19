@@ -51,21 +51,21 @@ public class Validator {
     }
 
     public static boolean validateControlDigits(long number) {
-            boolean digitsAreValid = true;
-            for (int type = 1; type <= 2  ; type++) {
-                if(!(sumModEleven(calculateSum(number, type)))){
-                    digitsAreValid = false;
-                    break;
+        boolean digitsAreValid = true;
+        for (int type = 1; type <= 2; type++) {
+            if (!(sumModEleven(calculateSum(number, type)))) {
+                digitsAreValid = false;
+                break;
 
             }
         }
-            return digitsAreValid;
+        return digitsAreValid;
     }
 
     public static boolean validateFodselsnummer(long number) {
-        if(!validateBirthDate(number)){
+        if (!validateBirthDate(number)) {
             return false;
         }
         return validateControlDigits(number);
-     }
+    }
 }
